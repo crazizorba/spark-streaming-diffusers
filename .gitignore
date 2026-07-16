@@ -1,0 +1,18 @@
+# Loại bỏ thư mục mã nguồn clone về
+diffusers/
+
+# Loại bỏ các file tạm của Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/

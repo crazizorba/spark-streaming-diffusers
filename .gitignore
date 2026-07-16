@@ -1,5 +1,4 @@
-# Loại bỏ thư mục mã nguồn clone về
-diffusers/
+# Loại bỏ các file tạm của Python
 
 # Loại bỏ các file tạm của Python
 __pycache__/

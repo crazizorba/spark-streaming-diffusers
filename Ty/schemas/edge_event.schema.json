@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Edge Event Schema",
+  "description": "Schema for edge creation events in the Code Property Graph.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "edge_id": {
+      "type": "string",
+      "description": "Stable identifier for the edge"
+    },
+    "source_node_id": {
+      "type": "string",
+      "description": "ID of the starting node"
+    },
+    "target_node_id": {
+      "type": "string",
+      "description": "ID of the ending node"
+    },
+    "edge_type": {
+      "type": "string",
+      "description": "Type of relationship (e.g., CALLS, INHERITS, USES)"
+    },
+    "properties": {
+      "type": "object",
+      "description": "Optional additional attributes for the edge",
+      "additionalProperties": true
+    }
+  },
+  "required": ["schema_version", "event_time", "edge_id", "source_node_id", "target_node_id", "edge_type"]
+}

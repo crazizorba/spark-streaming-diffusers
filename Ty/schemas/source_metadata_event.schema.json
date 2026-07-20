@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Source Metadata Event Schema",
+  "description": "Schema for source code file metadata intended for MongoDB.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "file_path": {
+      "type": "string",
+      "description": "Relative path of the source file in the repository"
+    },
+    "file_hash": {
+      "type": "string",
+      "description": "MD5 or SHA hash of the file content for change detection"
+    },
+    "loc": {
+      "type": "integer",
+      "description": "Lines of Code"
+    },
+    "parse_status": {
+      "type": "string",
+      "enum": ["SUCCESS", "FAILED"]
+    },
+    "last_modified": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["schema_version", "event_time", "file_path", "file_hash", "parse_status"]
+}

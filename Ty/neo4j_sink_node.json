@@ -1,0 +1,16 @@
+{
+  "name": "neo4j-sink-node",
+  "config": {
+    "topics": "node_events",
+    "connector.class": "streams.kafka.connect.sink.Neo4jSinkConnector",
+    "neo4j.server.uri": "bolt://neo4j:7687",
+    "neo4j.authentication.basic.username": "neo4j",
+    "neo4j.authentication.basic.password": "password",
+    "neo4j.topic.cypher.node_events": "MERGE (n:CodeNode {node_id: event.node_id}) SET n.type = event.node_label, n += event.properties",
+    "errors.retry.timeout": "-1",
+    "errors.retry.delay.max.ms": "1000",
+    "errors.tolerance": "all",
+    "errors.log.enable": true,
+    "errors.log.include.messages": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "neo4j-sink-edge",
+  "config": {
+    "topics": "edge_events",
+    "connector.class": "streams.kafka.connect.sink.Neo4jSinkConnector",
+    "neo4j.server.uri": "bolt://neo4j:7687",
+    "neo4j.authentication.basic.username": "neo4j",
+    "neo4j.authentication.basic.password": "password",
+    "neo4j.topic.cypher.edge_events": "MATCH (source:CodeNode {node_id: event.source_node_id}) MATCH (target:CodeNode {node_id: event.target_node_id}) MERGE (source)-[r:CALLS {edge_id: event.edge_id}]->(target) SET r.type = event.edge_type, r += event.properties",
+    "errors.retry.timeout": "-1",
+    "errors.retry.delay.max.ms": "1000",
+    "errors.tolerance": "all",
+    "errors.log.enable": true,
+    "errors.log.include.messages": true
+  }
+}

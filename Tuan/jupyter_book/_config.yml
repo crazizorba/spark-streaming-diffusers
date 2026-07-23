@@ -1,0 +1,12 @@
+title: Lab 04 - Spark Streaming
+author: Nhóm Thi, Tý, Sang, Tuấn
+logo: logo.png
+execute:
+  execute_notebooks: off
+html:
+  use_issues_button: false
+  use_repository_button: true
+repository:
+  url: https://github.com/huggingface/diffusers
+  path_to_book: Tuan/jupyter_book
+  branch: main

@@ -99,3 +99,12 @@ services:
         confluent-hub install --no-prompt neo4j/kafka-connect-neo4j:5.0.3
         echo "Starting Kafka Connect..."
         /etc/confluent/docker/run
+
+  mongodb:
+    image: mongo:6.0
+    container_name: cpg_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password

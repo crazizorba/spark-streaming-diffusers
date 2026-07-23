@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "total_nodes": 3098,
+    "total_edges": 3444,
+    "metadata": {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "file_path": "diffusers/src/diffusers/__init__.py",
+      "file_hash": "e6fb21c5e822ce7abe80289b4105486d",
+      "loc": 1795,
+      "parse_status": "SUCCESS",
+      "last_modified": "2026-07-19T06:46:26Z"
+    }
+  },
+  "sample_nodes": [
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "node_id": "9b15eebbf0c54a3a",
+      "node_label": "AST_MODULE",
+      "properties": {
+        "file_path": "diffusers/src/diffusers/__init__.py",
+        "ast_type": "Module",
+        "name": "",
+        "line_number": 0,
+        "col_offset": 0
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "node_id": "04fcdbde9518f9c8",
+      "node_label": "AST_ASSIGN",
+      "properties": {
+        "file_path": "diffusers/src/diffusers/__init__.py",
+        "ast_type": "Assign",
+        "name": "",
+        "line_number": 1,
+        "col_offset": 0
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "node_id": "5b78e51f6005f31b",
+      "node_label": "VARIABLE",
+      "properties": {
+        "file_path": "diffusers/src/diffusers/__init__.py",
+        "ast_type": "Name",
+        "name": "__version__",
+        "line_number": 1,
+        "col_offset": 0
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "node_id": "f0763a4a9e5198ed",
+      "node_label": "AST_STORE",
+      "properties": {
+        "file_path": "diffusers/src/diffusers/__init__.py",
+        "ast_type": "Store",
+        "name": "",
+        "line_number": 0,
+        "col_offset": 0
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "node_id": "9521b7d82907c728",
+      "node_label": "AST_CONSTANT",
+      "properties": {
+        "file_path": "diffusers/src/diffusers/__init__.py",
+        "ast_type": "Constant",
+        "name": "",
+        "line_number": 1,
+        "col_offset": 14
+      }
+    }
+  ],
+  "sample_edges": [
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "edge_id": "96dfcbe81c1e0161",
+      "source_node_id": "04fcdbde9518f9c8",
+      "target_node_id": "a39d5802e91d84f1",
+      "edge_type": "CFG",
+      "properties": {}
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "edge_id": "7b92766bee9441a8",
+      "source_node_id": "a39d5802e91d84f1",
+      "target_node_id": "1e727458ee3ac060",
+      "edge_type": "CFG",
+      "properties": {}
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "edge_id": "5d819834be8fd449",
+      "source_node_id": "1e727458ee3ac060",
+      "target_node_id": "d8e4c0a0cd426e81",
+      "edge_type": "CFG",
+      "properties": {}
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "edge_id": "23bda6d7521ce9f8",
+      "source_node_id": "d8e4c0a0cd426e81",
+      "target_node_id": "8fb3991b9e26a72a",
+      "edge_type": "CFG",
+      "properties": {}
+    },
+    {
+      "schema_version": "1.0",
+      "event_time": "2026-07-23T07:05:51Z",
+      "edge_id": "e38d6a6a0ac7ef87",
+      "source_node_id": "8fb3991b9e26a72a",
+      "target_node_id": "da008389915b1161",
+      "edge_type": "CFG",
+      "properties": {}
+    }
+  ]
+}

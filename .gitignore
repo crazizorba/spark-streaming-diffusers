@@ -15,3 +15,8 @@ env/
 # IDE
 .idea/
 .vscode/
+
+# Parse Cache
+.parse_cache.json
+sang/.parse_cache.json
+

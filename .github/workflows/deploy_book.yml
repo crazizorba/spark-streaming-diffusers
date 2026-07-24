@@ -29,12 +29,12 @@ jobs:
         
     - name: Build the book
       run: |
-        jupyter-book build Tuan/jupyter_book
+        jupyter-book build docs/jupyter_book
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: Tuan/jupyter_book/_build/html
+        path: docs/jupyter_book/_build/html
         
     - name: Deploy to GitHub Pages
       id: deployment

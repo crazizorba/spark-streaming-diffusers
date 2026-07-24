@@ -22,7 +22,7 @@ sang/
 ## 🛠️ 1. Chuẩn bị Môi trường
 
 ```bash
-pip install -r sang/requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
@@ -35,12 +35,12 @@ pip install -r sang/requirements.txt
 python3 sang/parser_service.py --repo-dir diffusers/src/diffusers --dry-run --limit 10
 
 # Parse toàn bộ repository diffusers
-python3 sang/parser_service.py --repo-dir diffusers/src/diffusers --dry-run
+python3 src/parser/parser_service.py --repo-dir diffusers/src/diffusers --dry-run
 ```
 
 ### B. Chạy thật đẩy dữ liệu vào Kafka Broker
 ```bash
-python3 sang/parser_service.py --repo-dir diffusers/src/diffusers --kafka-broker localhost:9092
+python3 src/parser/parser_service.py --repo-dir diffusers/src/diffusers --kafka-broker localhost:9092
 ```
 
 ---
@@ -48,7 +48,7 @@ python3 sang/parser_service.py --repo-dir diffusers/src/diffusers --kafka-broker
 ## 🧪 3. Chạy Kiểm thử Tính Idempotent
 
 ```bash
-python3 sang/test_idempotency.py
+python3 src/testing/test_idempotency.py
 ```
 Khối kiểm thử sẽ tự động chạy 2 lần trên cùng một file source code và kiểm tra sự trùng khớp 100% của toàn bộ `node_id`, `edge_id` và `file_hash`.
 

@@ -7,5 +7,5 @@ html:
   use_repository_button: true
 repository:
   url: https://github.com/huggingface/diffusers
-  path_to_book: Tuan/jupyter_book
+  path_to_book: docs/jupyter_book
   branch: main

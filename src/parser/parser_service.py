@@ -162,10 +162,10 @@ class KafkaSender:
 def main():
     parser = argparse.ArgumentParser(description="Incremental CPG Parser Service for Lab 04")
     parser.add_argument("--repo-dir", type=str, default="diffusers/src", help="Path to repository or source directory")
-    parser.add_argument("--file-list", type=str, default=None, help="Path to txt file listing python files (e.g. Thi/python_files_list.txt)")
+    parser.add_argument("--file-list", type=str, default=None, help="Path to txt file listing python files (e.g. src/discovery/python_files_list.txt)")
     parser.add_argument("--kafka-broker", type=str, default=None, help="Kafka broker host:port (e.g. localhost:9092)")
-    parser.add_argument("--schema-dir", type=str, default="Ty/schemas", help="Directory containing JSON schemas")
-    parser.add_argument("--cache-file", type=str, default="sang/.parse_cache.json", help="Path to incremental parse cache file")
+    parser.add_argument("--schema-dir", type=str, default="infra/schemas", help="Directory containing JSON schemas")
+    parser.add_argument("--cache-file", type=str, default="data/.parse_cache.json", help="Path to incremental parse cache file")
     parser.add_argument("--force-reparse", action="store_true", help="Force re-parsing of all files ignoring cache")
     parser.add_argument("--dry-run", action="store_true", help="Perform parsing without sending to Kafka")
     parser.add_argument("--limit", type=int, default=0, help="Limit number of files to process (0 = all)")

@@ -10,7 +10,8 @@ def create_spark_session():
     """
     return SparkSession.builder \
         .appName("SourceMetadataIngestion") \
-        .config("spark.mongodb.write.connection.uri", "mongodb://admin:password@localhost:27017/cpg_db.source_metadata?authSource=admin") \
+        .config("spark.mongodb.write.connection.uri", "mongodb://admin:password@127.0.0.1:27017/cpg_db.source_metadata?authSource=admin") \
+        .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.mongodb.spark:mongo-spark-connector_2.12:10.4.0") \
         .getOrCreate()
 
 def get_schema():
@@ -31,7 +32,7 @@ def process_stream():
     spark = create_spark_session()
     spark.sparkContext.setLogLevel("WARN")
     
-    kafka_bootstrap_servers = "localhost:9092"
+    kafka_bootstrap_servers = "127.0.0.1:9092"
     topic_name = "source_metadata_events"
     
     # Đọc dữ liệu stream từ Kafka
@@ -54,7 +55,8 @@ def process_stream():
     # Sử dụng chế độ "Append" vì Spark Structured Streaming hỗ trợ append.
     # Trong MongoDB connector, cấu hình idField hoặc upsert có thể giúp chống trùng lặp nếu cần,
     # nhưng mặc định Spark Structured Streaming kết hợp với Checkpoint đã cung cấp exactly-once processing semantics.
-    checkpoint_location = "./spark_checkpoints/source_metadata"
+    import os
+    checkpoint_location = "file://" + os.path.abspath("./spark_checkpoints/source_metadata")
     
     query = parsed_df.writeStream \
         .format("mongodb") \

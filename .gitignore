@@ -19,4 +19,13 @@ env/
 # Parse Cache
 .parse_cache.json
 sang/.parse_cache.json
+data/.parse_cache.json
 
+# Spark
+spark_checkpoints/
+
+# Jupyter Book Build
+docs/jupyter_book/_build/
+
+# Scratch Scripts
+prep_book.py

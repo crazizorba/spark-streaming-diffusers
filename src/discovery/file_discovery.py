@@ -43,7 +43,7 @@ if __name__ == "__main__":
         print(" ... (và nhiều file khác)")
     
     # Lưu danh sách ra file text
-    output_file = "python_files_list.txt"
+    output_file = "src/discovery/python_files_list.txt"
     with open(output_file, 'w', encoding='utf-8') as f:
         for py_file in py_files:
             f.write(f"{py_file}\n")

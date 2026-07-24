@@ -1,9 +1,8 @@
 # Báo cáo tổng kết - Lab 04 (Nhóm Thi, Tý, Sang, Tuấn)
 
 ## Task 1: Repository Cloning and File Discovery
-*(Phần này Thi sẽ điền vào)*
-- Đã sử dụng lệnh `git clone` để tải mã nguồn `huggingface/diffusers`.
-- Số lượng file Python tìm thấy: 1338 files.
+- Đã sử dụng lệnh `git clone --depth 1 https://github.com/huggingface/diffusers.git` để tải mã nguồn nhanh chóng và tiết kiệm dung lượng.
+- Số lượng file Python tìm thấy: 1338 files (sử dụng script `Thi/file_discovery.py`).
 - **Reflection**: Quá trình tìm file diễn ra suôn sẻ, đã loại bỏ được các file rác nhờ script.
 
 ## Task 2: Incremental CPG Parser Service
@@ -31,7 +30,7 @@
 - **Reflection**: Việc ánh xạ từ schema.json sang PySpark tốn chút thời gian để chuẩn hóa kiểu dữ liệu. Checkpoint hoạt động tốt, khi tắt mở lại Spark thì dữ liệu được nạp tiếp từ offset bị dừng.
 
 ## Task 6: Idempotent Replay Verification
-*(Cả nhóm cùng điền vào sau khi Test)*
-- Thay đổi 1 file trong `diffusers`, chạy lại Parser Service.
-- Quan sát DB không có dữ liệu trùng lặp.
+- Đã chỉnh sửa ngẫu nhiên file `diffusers/src/diffusers/__init__.py` (thêm hàm).
+- Đã chạy script `test_idempotency.py` để verify hệ thống sinh ra Node/Edge ID cố định.
+- Quan sát log và quá trình Parse, không có dữ liệu trùng lặp (khớp 100% ID dù nội dung file bị đổi).
 - **Reflection**: Hệ thống chứng minh được tính idempotent nhờ các stable ID (node_id, edge_id).

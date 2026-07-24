@@ -33,3 +33,11 @@ Dưới đây là danh sách chi tiết các công việc và các file tôi đ�
 ### 📌 Kế hoạch tiếp theo (Next Steps):
 - Đợi các thành viên (Sang, Tý, Tuấn) hoàn thành Task 2, 3, 4, 5. Các bạn hãy clone nhánh `main` về, tự tạo thư mục mang tên mình và code vào đó nhé.
 - Thực hiện **Task 6 (Idempotent Replay Verification)**: sẽ trực tiếp sửa 1 file trong source `diffusers` để test toàn bộ luồng dữ liệu từ Kafka đến Database.
+
+### Ngày 24/07/2026
+
+#### Task 6: Idempotent Replay Verification
+- Đã sửa file `diffusers/src/diffusers/__init__.py` và thêm hàm `stream_test_incremental_function()`.
+- Đã chạy script `test_idempotency.py` và xác minh tính idempotent (node_ids và edge_ids không đổi 100% qua nhiều lần parse).
+- Kết luận: Hệ thống đảm bảo Idempotent. Database Neo4j và MongoDB sẽ không có dữ liệu rác/trùng lặp khi Kafka consumer (connector và Spark) tiêu thụ events này.
+- Tình trạng: **Hoàn thành**.

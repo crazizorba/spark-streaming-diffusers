@@ -1,4 +1,4 @@
-# Task 7: Sơ đồ Kiến trúc Hệ thống (Architecture Diagram)
+# Sơ đồ Kiến trúc Hệ thống (Architecture Diagram)
 
 Dưới đây là sơ đồ tổng quan mô tả kiến trúc và luồng dữ liệu (Data Pipeline) của hệ thống trích xuất Code Property Graph (CPG) theo thời gian thực.
 

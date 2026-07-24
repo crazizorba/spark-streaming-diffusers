@@ -1,12 +1,9 @@
-#!/usr/bin/env python3
-"""
-Idempotency Test Script for Sang's CPG Parser
-Verifies that parsing the same file multiple times produces identical Node IDs and Edge IDs.
-"""
-
 import os
 import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../parser")))
 from cpg_parser import parse_python_file
+
+
 
 
 def test_idempotency():

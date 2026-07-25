@@ -1,6 +1,5 @@
 # Đồ án Tổng kết: Incremental Code Property Graph (CPG) Pipeline
 
-Chào mừng thầy và các bạn đến với Báo cáo Đồ án môn học Big Data!
 
 ## 1. Giới thiệu dự án (Introduction)
 
@@ -27,7 +26,3 @@ Nhóm chúng em gồm 4 thành viên, mỗi người đều nỗ lực hết s�
 | 2 | **Trần Đình Thi** | 23120359 | 100% |
 | 3 | **Cao Quốc Tuấn** | 23120390 | 100% |
 | 4 | **Hoàng Văn Sang** | 23120350 | 100% |
-
-Cảm ơn thầy cô đã hướng dẫn tận tình để nhóm có thể hoàn thành xuất sắc hệ thống Big Data phức tạp này!
-
-> 🚀 **Hướng dẫn xem báo cáo:** Bạn có thể chuyển hướng giữa các Task ở thanh menu bên trái màn hình.

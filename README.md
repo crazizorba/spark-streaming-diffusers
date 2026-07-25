@@ -38,9 +38,8 @@ Quá trình này sẽ khởi động Zookeeper, Kafka (9092), Kafka Connect (808
 ### 📍 Task 3: Kích hoạt Sink Connector cho Neo4j
 Chạy 2 lệnh `curl` sau để nạp cấu hình tự động đẩy dữ liệu từ Kafka vào Neo4j:
 ```bash
-curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @src/kafka_connect/neo4j-sink-node.json
-
-curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @src/kafka_connect/neo4j-sink-edge.json
+curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @infra/kafka_connect/neo4j_sink_node.json
+curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @infra/kafka_connect/neo4j_sink_edge.json
 ```
 > ✅ **Lưu ý:** Connector đã được code sử dụng lệnh `MERGE` thay vì `CREATE` để chặn hoàn toàn việc tạo dữ liệu trùng lặp trong Đồ thị.
 

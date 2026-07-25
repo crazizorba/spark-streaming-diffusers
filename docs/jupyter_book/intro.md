@@ -18,8 +18,6 @@ Mục tiêu cốt lõi của hệ thống là trích xuất **Code Property Grap
 
 ## 2. Danh sách thành viên nhóm
 
-Nhóm chúng em gồm 4 thành viên, mỗi người đều nỗ lực hết sức và phối hợp ăn ý để hoàn thành toàn bộ các Task khó nhằn của đồ án này. Dưới đây là danh sách thành viên và mức độ đóng góp:
-
 | STT | Họ và Tên | Mã Số Sinh Viên | Mức độ đóng góp |
 |:---:|:---|:---:|:---:|
 | 1 | **Cao Quốc Tý** | 23120400 | 100% |

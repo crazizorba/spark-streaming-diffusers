@@ -1,4 +1,26 @@
-# Báo cáo tổng kết - Lab 04
-**Nhóm:** Thi, Tý, Sang, Tuấn
+# Đồ án Tổng kết: Incremental Code Property Graph (CPG) Pipeline
 
-Đồ án này tập trung vào việc xây dựng một pipeline Incremental Code Property Graph (CPG) kết hợp với luồng dữ liệu thời gian thực sử dụng Kafka, Neo4j, Spark Streaming và MongoDB.
+
+## 1. Giới thiệu dự án (Introduction)
+
+Đồ án này tập trung vào việc thiết kế và xây dựng một Data Pipeline hoàn chỉnh, có khả năng xử lý luồng dữ liệu thời gian thực (Real-time Streaming) kết hợp với công nghệ Đồ thị (Graph Database). 
+
+Mục tiêu cốt lõi của hệ thống là trích xuất **Code Property Graph (CPG)** từ các kho mã nguồn Python lớn (cụ thể là thư viện [Diffusers](https://github.com/huggingface/diffusers) của Hugging Face), sau đó liên tục đẩy các nút đồ thị (Node), cạnh (Edge) và siêu dữ liệu (Metadata) vào hệ thống lưu trữ mà vẫn phải đảm bảo nghiêm ngặt tính **Lũy đẳng (Idempotent)** và xử lý **Tăng cường (Incremental)**.
+
+### Kiến trúc công nghệ cốt lõi:
+- **Ngôn ngữ & Phân tích:** Python, `ast` (Bóc tách cú pháp cây - Abstract Syntax Tree).
+- **Trục xương sống (Message Broker):** Apache Kafka & Kafka Connect.
+- **Lưu trữ Đồ thị (Graph Storage):** Neo4j (Lưu trữ CPG, Node, Edge).
+- **Xử lý Luồng (Stream Processing):** Apache Spark Structured Streaming.
+- **Lưu trữ Siêu dữ liệu (Metadata Storage):** MongoDB (Lưu trữ lịch sử, trạng thái file, LOC).
+
+---
+
+## 2. Danh sách thành viên nhóm
+
+| STT | Họ và Tên | Mã Số Sinh Viên | Mức độ đóng góp |
+|:---:|:---|:---:|:---:|
+| 1 | **Cao Quốc Tý** | 23120400 | 100% |
+| 2 | **Trần Đình Thi** | 23120359 | 100% |
+| 3 | **Cao Quốc Tuấn** | 23120390 | 100% |
+| 4 | **Hoàng Văn Sang** | 23120350 | 100% |

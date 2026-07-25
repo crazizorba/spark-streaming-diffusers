@@ -6,6 +6,6 @@ html:
   use_issues_button: false
   use_repository_button: true
 repository:
-  url: https://github.com/huggingface/diffusers
+  url: https://github.com/crazizorba/spark-streaming-diffusers
   path_to_book: docs/jupyter_book
-  branch: main
+  branch: develop

@@ -51,10 +51,8 @@ def process_stream():
     schema = get_schema()
     parsed_df = json_df.select(from_json(col("json_value"), schema).alias("data")).select("data.*")
     
-    # Ghi dữ liệu vào MongoDB
-    # Sử dụng chế độ "Append" vì Spark Structured Streaming hỗ trợ append.
-    # Trong MongoDB connector, cấu hình idField hoặc upsert có thể giúp chống trùng lặp nếu cần,
-    # nhưng mặc định Spark Structured Streaming kết hợp với Checkpoint đã cung cấp exactly-once processing semantics.
+    # Gán trường file_path thành _id để MongoDB tự động ghi đè (Upsert) thay vì tạo document mới
+    parsed_df = parsed_df.withColumn("_id", col("file_path"))
     import os
     checkpoint_location = "file://" + os.path.abspath("./spark_checkpoints/source_metadata")
     

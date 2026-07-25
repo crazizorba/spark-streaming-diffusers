@@ -6,6 +6,11 @@ on:
       - main
       - develop
 
+# Fix concurrency issues when pushing multiple times quickly
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   deploy-book:
     runs-on: ubuntu-latest

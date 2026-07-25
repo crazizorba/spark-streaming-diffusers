@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠️ Yêu cầu Hệ thống & Cài đặt Môi trường
+##  Yêu cầu Hệ thống & Cài đặt Môi trường
 
 ### 1. Hệ điều hành & Hạ tầng
 - **Docker & Docker Compose**: Yêu cầu bắt buộc để khởi động cụm hạ tầng (Kafka, Neo4j, MongoDB).
@@ -30,7 +30,7 @@ python3 -m pip install neo4j pymongo --break-system-packages
 
 ---
 
-## 🚀 HƯỚNG DẪN TRIỂN KHAI VÀ THỰC THI
+##  HƯỚNG DẪN TRIỂN KHAI VÀ THỰC THI
 
 Hệ thống được thiết kế để chạy tự động theo đúng luồng Data Pipeline. Hãy làm theo trình tự dưới đây.
 
@@ -68,7 +68,7 @@ Chạy 2 lệnh `curl` sau để nạp cấu hình, tự động đẩy dữ li�
 curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @infra/kafka_connect/neo4j_sink_node.json
 curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d @infra/kafka_connect/neo4j_sink_edge.json
 ```
-> 💡 **Tính năng:** Connector được thiết kế sử dụng lệnh `MERGE` thay vì `CREATE` để đảm bảo tính Lũy Đẳng (chống trùng lặp dữ liệu) trong hệ thống Đồ thị.
+>  **Tính năng:** Connector được thiết kế sử dụng lệnh `MERGE` thay vì `CREATE` để đảm bảo tính Lũy Đẳng (chống trùng lặp dữ liệu) trong hệ thống Đồ thị.
 
 ### Bước 5: Khởi chạy Spark Structured Streaming (Tiêu thụ Metadata)
 Mở một Terminal mới và kích hoạt Job Spark:
@@ -86,7 +86,7 @@ Hệ thống sẽ quét từng file `.py` trong kho mã nguồn và đẩy hàng
 
 ---
 
-## 🧪 Kiểm chứng Tính Lũy Đẳng (Idempotent Test)
+##  Kiểm chứng Tính Lũy Đẳng (Idempotent Test)
 
 Để kiểm chứng tính bền vững của Pipeline khi có sự thay đổi mã nguồn (Incremental Update):
 1. **Dừng Parser Service** (Nhấn `Ctrl+C`).

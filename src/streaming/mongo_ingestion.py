@@ -2,15 +2,18 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, current_timestamp
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
+import os
+
 def create_spark_session():
     """
     Tạo Spark Session với cấu hình cần thiết để kết nối Kafka và MongoDB.
     Lưu ý: Bạn cần chạy lệnh spark-submit với các packages phù hợp:
     --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.mongodb.spark:mongo-spark-connector_2.12:10.2.1
     """
+    mongo_uri = os.getenv("MONGO_URI", "mongodb://admin:password@127.0.0.1:27017/cpg_db.source_metadata?authSource=admin")
     return SparkSession.builder \
         .appName("SourceMetadataIngestion") \
-        .config("spark.mongodb.write.connection.uri", "mongodb://admin:password@127.0.0.1:27017/cpg_db.source_metadata?authSource=admin") \
+        .config("spark.mongodb.write.connection.uri", mongo_uri) \
         .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.mongodb.spark:mongo-spark-connector_2.12:10.4.0") \
         .getOrCreate()
 
@@ -32,7 +35,7 @@ def process_stream():
     spark = create_spark_session()
     spark.sparkContext.setLogLevel("WARN")
     
-    kafka_bootstrap_servers = "127.0.0.1:9092"
+    kafka_bootstrap_servers = os.getenv("KAFKA_BROKERS", "127.0.0.1:9092")
     topic_name = "source_metadata_events"
     
     # Đọc dữ liệu stream từ Kafka
@@ -53,7 +56,6 @@ def process_stream():
     
     # Gán trường file_path thành _id để MongoDB tự động ghi đè (Upsert) thay vì tạo document mới
     parsed_df = parsed_df.withColumn("_id", col("file_path"))
-    import os
     checkpoint_location = "file://" + os.path.abspath("./spark_checkpoints/source_metadata")
     
     query = parsed_df.writeStream \

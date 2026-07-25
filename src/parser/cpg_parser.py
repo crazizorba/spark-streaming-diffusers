@@ -95,7 +95,9 @@ class CPGVisitor(ast.NodeVisitor):
             self._add_edge(parent_id, current_node_id, "AST")
 
         # Track Variable definition (DFG)
-        if isinstance(node, ast.Name):
+        if isinstance(node, ast.arg):
+            self.var_definitions[node.arg] = current_node_id
+        elif isinstance(node, ast.Name):
             if isinstance(node.ctx, ast.Store):
                 self.var_definitions[node.id] = current_node_id
             elif isinstance(node.ctx, ast.Load):
@@ -136,6 +138,18 @@ class CPGVisitor(ast.NodeVisitor):
             if prev_node_id:
                 self._add_edge(prev_node_id, stmt_id, "CFG")
             prev_node_id = stmt_id
+
+            # Handle branching for If, For, While
+            if isinstance(stmt, (ast.If, ast.For, ast.While)):
+                if hasattr(stmt, 'body') and stmt.body:
+                    first_body = stmt.body[0]
+                    first_body_id = generate_node_id(self.file_path, type(first_body).__name__, getattr(first_body, 'lineno', 0), getattr(first_body, 'col_offset', 0), str(getattr(first_body, 'name', getattr(first_body, 'id', ''))))
+                    self._add_edge(stmt_id, first_body_id, "CFG", {"branch": "True"})
+                
+                if hasattr(stmt, 'orelse') and stmt.orelse:
+                    first_orelse = stmt.orelse[0]
+                    first_orelse_id = generate_node_id(self.file_path, type(first_orelse).__name__, getattr(first_orelse, 'lineno', 0), getattr(first_orelse, 'col_offset', 0), str(getattr(first_orelse, 'name', getattr(first_orelse, 'id', ''))))
+                    self._add_edge(stmt_id, first_orelse_id, "CFG", {"branch": "False"})
 
 
 def parse_python_file(file_path: str, repo_root: str = "") -> Tuple[Dict[str, Any], List[Dict[str, Any]], List[Dict[str, Any]], Optional[Dict[str, Any]]]:

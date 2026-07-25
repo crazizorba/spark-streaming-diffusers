@@ -6,7 +6,7 @@
     "neo4j.server.uri": "bolt://neo4j:7687",
     "neo4j.authentication.basic.username": "neo4j",
     "neo4j.authentication.basic.password": "password",
-    "neo4j.topic.cypher.edge_events": "MATCH (source:CodeNode {node_id: event.source_node_id}) MATCH (target:CodeNode {node_id: event.target_node_id}) MERGE (source)-[r:CALLS {edge_id: event.edge_id}]->(target) SET r.type = event.edge_type, r += event.properties",
+    "neo4j.topic.cypher.edge_events": "MATCH (source:CodeNode {node_id: event.source_node_id}) MATCH (target:CodeNode {node_id: event.target_node_id}) CALL apoc.merge.relationship(source, event.edge_type, {edge_id: event.edge_id}, event.properties, target) YIELD rel RETURN rel",
     "errors.retry.timeout": "-1",
     "errors.retry.delay.max.ms": "1000",
     "errors.tolerance": "all",

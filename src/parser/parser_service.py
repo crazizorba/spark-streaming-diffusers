@@ -259,6 +259,7 @@ def main():
 
         if idx % 20 == 0 or idx == len(py_files):
             print(f"[{idx}/{len(py_files)}] Processed: {os.path.basename(filepath)} | Skipped: {stats['skipped_files']} | Nodes: {stats['nodes_emitted']} | Edges: {stats['edges_emitted']}")
+            cache.save()
 
     if sender:
         sender.flush()

@@ -14,7 +14,7 @@ def create_spark_session():
     return SparkSession.builder \
         .appName("SourceMetadataIngestion") \
         .config("spark.mongodb.write.connection.uri", mongo_uri) \
-        .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.mongodb.spark:mongo-spark-connector_2.12:10.4.0") \
+        .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,org.mongodb.spark:mongo-spark-connector_2.12:10.4.0") \
         .getOrCreate()
 
 def get_schema():
